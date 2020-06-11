@@ -13,4 +13,11 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
+
+    // https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk15on
+    compile group: 'org.bouncycastle', name: 'bcprov-jdk15on', version: '1.65.01'
+
+    // https://mvnrepository.com/artifact/com.sangupta/murmur
+    compile group: 'com.sangupta', name: 'murmur', version: '1.0.0'
+
 }
