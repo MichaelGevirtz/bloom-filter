@@ -5,16 +5,18 @@ import com.sangupta.murmur.Murmur3;
 import java.io.Serializable;
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
-import java.util.*;
+import java.util.Arrays;
+import java.util.BitSet;
+import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 
 public class InMemoryBloomFilter<T> implements BloomFilter<T>, Serializable {
 
-    private BitSet elementData;
-    private MessageDigest digestFunction;
-    private Integer numberOfHashes = 2;
+    private final BitSet elementData;
+    private final MessageDigest digestFunction;
+    private Integer numberOfHashes;
     private final int capacity;
 
     public InMemoryBloomFilter(int capacity, MessageDigest digestFunction, int numberOfHashes) {
@@ -64,9 +66,7 @@ public class InMemoryBloomFilter<T> implements BloomFilter<T>, Serializable {
     @Override
     public int addAll(Set<T> ips) {
 
-        ips.forEach(ip -> {
-            add(ip);
-        });
+        ips.forEach(this::add);
         return length();
     }
 

@@ -10,8 +10,8 @@ import java.util.Random;
 import java.util.Set;
 import java.util.stream.IntStream;
 
-import static junit.framework.Assert.assertFalse;
 import static junit.framework.TestCase.assertTrue;
+import static org.junit.Assert.assertFalse;
 
 public class InMemoryBloomFilterTest {
 
